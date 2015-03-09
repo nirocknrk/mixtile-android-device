@@ -1,6 +1,6 @@
 # mixtile-ubuntu-touch
 
-This is the repository for ubuntu touch device package of Mixtile project.
+This is the repository for android device package of Mixtile project.
 
 now it includes:
 
