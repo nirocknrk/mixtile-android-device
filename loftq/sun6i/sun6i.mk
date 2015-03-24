@@ -21,8 +21,6 @@ SUN6I_DIR := device/mixtile/loftq/sun6i
 DEVICE_PACKAGE_OVERLAYS := \
     $(SUN6I_DIR)/overlay
 
-#include $(SUN6I_DIR)/tools/tools.mk
-
 # allwinner audio and video coding libs
 PRODUCT_PACKAGES += \
 	libcedarxbase \
