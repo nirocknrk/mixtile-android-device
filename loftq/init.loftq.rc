@@ -27,7 +27,7 @@ on init
 
 on early-fs
 	dispe2fsck
-	mount_all /fstab.loftq
+	mount_all /fstab.sun6i
 	setprop ro.crypto.fuse_sdcard true
 
 on post-fs-data
