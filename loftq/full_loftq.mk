@@ -16,14 +16,6 @@
 
 PRODUCT_CHARACTERISTICS := tablet
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        MagicSmokeWallpapers \
-        VisualizationWallpapers \
-        librs_jni
-
 PRODUCT_PROPERTY_OVERRIDES := \
         net.dns1=8.8.8.8 \
         net.dns2=8.8.4.4
@@ -35,7 +27,7 @@ $(call inherit-product, device/mixtile/loftq/device.mk)
 
 PRODUCT_NAME   := full_loftq
 PRODUCT_DEVICE := loftq
-PRODUCT_BRAND  := Ubuntu
+PRODUCT_BRAND  := Android
 PRODUCT_MODEL  := LoftQ
 PRODUCT_MANUFACTURER := Focalcrest_Inc
 PRODUCT_RESTRICT_VENDOR_FILES := false

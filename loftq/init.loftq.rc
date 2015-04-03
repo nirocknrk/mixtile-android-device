@@ -125,6 +125,13 @@ on fs
 	insmod /system/vendor/modules/sndspdif.ko
 	insmod /system/vendor/modules/sun6i_sndspdif.ko
 
+# powervr service
+service pvrsrvctl /system/vendor/bin/pvrsrvctl --start --no-module
+    class core
+    user root
+    group root
+    oneshot
+
 # ril related services
 service ril-daemon /system/bin/rild -l libsoftwinner-ril.so -- -d /dev/ttyUSB2
     class main

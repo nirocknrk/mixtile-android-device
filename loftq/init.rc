@@ -700,5 +700,3 @@ service isomountmanager /system/bin/isomountmanagerservice
     ioprio rt 4
     oneshot
 
-service ilkd /system/bin/ilk-service
-  class main

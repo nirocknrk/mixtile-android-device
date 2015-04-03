@@ -15,9 +15,8 @@
 # This file lists the modules that are specific to Sun6i but are used by
 # all Sun6i devices.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-
 SUN6I_DIR := device/mixtile/loftq/sun6i
+
 DEVICE_PACKAGE_OVERLAYS := \
     $(SUN6I_DIR)/overlay
 
@@ -46,6 +45,15 @@ PRODUCT_PACKAGES += \
 	libaw_h264enc \
 	libI420colorconvert \
 	libcnr
+
+# allwinner extend
+PRODUCT_PACKAGES += \
+	libsystemmixservice \
+	libisomountmanagerservice \
+	systemmixservice \
+	isomountmanagerservice \
+	securefileserver \
+	gpioservice
 
 # 3G Data Card Packages
 PRODUCT_PACKAGES += \
@@ -97,9 +105,6 @@ PRODUCT_COPY_FILES += \
 # 3G Data Card usb modeswitch File
 PRODUCT_COPY_FILES += \
         $(call find-copy-subdir-files,*,$(SUN6I_DIR)/rild/usb_modeswitch.d,system/etc/usb_modeswitch.d)
-
-# hardware module include file path
-TARGET_HARDWARE_INCLUDE := $(TOP)/$(SUN6I_DIR)/include
 
 BOARD_SEPOLICY_DIRS := \
         $(SUN6I_DIR)/sepolicy

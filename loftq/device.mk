@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
         device/mixtile/loftq/ueventd.loftq.rc:root/ueventd.loftq.rc \
         device/mixtile/loftq/modules/modules/nand.ko:root/nand.ko \
         device/mixtile/loftq/initlogo.rle:root/initlogo.rle \
-        device/mixtile/loftq/fstab.loftq:root/fstab.loftq \
+        device/mixtile/loftq/fstab.loftq:root/fstab.sun6i \
         device/mixtile/loftq/needfix.rle:root/needfix.rle \
         device/mixtile/loftq/media/bootanimation.zip:system/media/bootanimation.zip \
         device/mixtile/loftq/media/bootlogo.bmp:system/media/bootlogo.bmp \
@@ -117,7 +117,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.sf.showhdmisettings=7 \
         persist.sys.ui.hw=true \
         persist.sys.usb.config=mass_storage,adb \
-        ro.product.firmware=v4.4.2 \
+        ro.product.firmware=v4.4.4 \
         ro.udisk.lable=loftq \
         ro.softmouse.left.code=6 \
         ro.softmouse.right.code=14 \
