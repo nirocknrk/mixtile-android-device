@@ -47,13 +47,18 @@ PRODUCT_PACKAGES += \
 	libcnr
 
 # allwinner extend
+#isomount && securefile && gpioservice
 PRODUCT_PACKAGES += \
-	libsystemmixservice \
-	libisomountmanagerservice \
-	systemmixservice \
-	isomountmanagerservice \
-	securefileserver \
-	gpioservice
+    isomountmanagerservice \
+    libisomountmanager_jni \
+    libisomountmanagerservice \
+    systemmixservice \
+    gpioservice \
+    libsystemmix_jni \
+    libsystemmixservice \
+    libsecurefile_jni \
+    libsecurefileservice \
+    securefileserver
 
 # 3G Data Card Packages
 PRODUCT_PACKAGES += \
@@ -96,6 +101,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # for drm
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
+
+PRODUCT_PACKAGES += \
+    com.google.widevine.software.drm.xml \
+    com.google.widevine.software.drm \
+    libdrmwvmplugin \
+    libwvdrmengine \
+    libwvm \
+    libWVStreamControlAPI_L3 \
+    libwvdrm_L3 \
+    libdrmdecrypt
 
 # audio
 PRODUCT_COPY_FILES += \

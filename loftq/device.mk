@@ -20,6 +20,17 @@ else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+#kernel config
+
+BOARD_KERNEL_CMDLINE += vmalloc=512M
+BOARD_KERNEL_BASE := 0x40000000
+BOARD_KERNEL_CMDLINE := console=ttyS0,115200 rw init=/init loglevel=4
+BOARD_KERNEL_CMDLINE += selinux=0
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_FLASH_BLOCK_SIZE := 4096
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 805306368
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
 # init.rc
 PRODUCT_COPY_FILES += \
 	device/mixtile/loftq/init.rc:root/init.rc \
@@ -97,8 +108,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.sys.timezone=Asia/Shanghai \
-        persist.sys.language=zh \
-        persist.sys.country=CN
+        persist.sys.language=en \
+        persist.sys.country=US
 
 PRODUCT_PROPERTY_OVERRIDES += \
         config.disable_telephony=true
@@ -111,6 +122,10 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
         frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
         device/mixtile/loftq/configs/cameralist.cfg:system/etc/cameralist.cfg
+
+# table core hardware
+PRODUCT_COPY_FILES += \
+        device/mixtile/loftq/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.sf.lcd_density=160 \
@@ -130,6 +145,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
         audio.input.active=AUDIO_CODEC
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    	ro.build.selinux=true \
+     	wifi.interface=wlan0 \
+	    wifi.supplicant_scan_interval=15 \
+	    keyguard.no_require_sim=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
         ro.carrier=wifi-only \
     	ro.sw.directlypoweroff=false
 
@@ -139,11 +160,13 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 # file system management
 PRODUCT_PACKAGES += \
-    e2fsck 
+        e2fsck \
+        libnetcmdiface
 
 PRODUCT_PACKAGES += \
-    nvram \
-    ap6234 
+        nvram \
+        ap6234 
+
 
 PRODUCT_AAPT_CONFIG := xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi

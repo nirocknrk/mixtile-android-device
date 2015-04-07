@@ -37,14 +37,14 @@ LOCAL_SHARED_LIBRARIES += \
 	libve \
 	libcedarxbase
 	
-LOCAL_C_INCLUDES += 								\
-	frameworks/base/core/jni/android/graphics 		\
-	frameworks/native/include/media/openmax			\
-	hardware/libhardware/include/hardware			\
-	frameworks/native/include						\
-	frameworks/av/media/CedarX-Projects/CedarX/include	\
-	frameworks/av/media/CedarX-Projects/CedarX/include/include_system	\
-	frameworks/av/media/CedarX-Projects/CedarX/include/include_camera 	\
+LOCAL_C_INCLUDES += \
+	frameworks/base/core/jni/android/graphics 	\
+	frameworks/native/include/media/openmax		\
+	hardware/libhardware/include/hardware		\
+	frameworks/native/include			\
+	$(SUN6I_DIR)/aw/CedarX-Projects/CedarX/include	\
+	$(SUN6I_DIR)/aw/CedarX-Projects/CedarX/include/include_system	\
+	$(SUN6I_DIR)/aw/CedarX-Projects/CedarX/include/include_camera 	\
 	$(TARGET_HARDWARE_INCLUDE)
 
 LOCAL_SRC_FILES := \
@@ -73,17 +73,7 @@ LOCAL_SRC_FILES += \
 	V4L2CameraDevice.cpp
 endif
 
-ifneq ($(filter nuclear%,$(TARGET_DEVICE)),)
-LOCAL_CFLAGS += -D__SUN5I__
-endif
-
-ifneq ($(filter crane%,$(TARGET_DEVICE)),)
-LOCAL_CFLAGS += -D__SUN4I__
-endif
-
-ifneq ($(filter fiber%,$(TARGET_DEVICE)),)
 LOCAL_CFLAGS += -D__SUN6I__
-endif
 
 LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 

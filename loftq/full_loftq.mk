@@ -27,7 +27,7 @@ $(call inherit-product, device/mixtile/loftq/device.mk)
 
 PRODUCT_NAME   := full_loftq
 PRODUCT_DEVICE := loftq
-PRODUCT_BRAND  := Android
+PRODUCT_BRAND  := CyanogenMod
 PRODUCT_MODEL  := LoftQ
 PRODUCT_MANUFACTURER := Focalcrest_Inc
 PRODUCT_RESTRICT_VENDOR_FILES := false
